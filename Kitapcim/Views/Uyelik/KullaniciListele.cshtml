@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Kitapcim.Models.Kullanici>
+@{ViewBag.Title = "Kullanıcılar";}
+<h2>Kullanıcılar</h2>
+<p>
+    @Html.ActionLink("Yeni Kullanıcı Oluştur", "KullaniciEkle")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ad)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ad)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "KullaniciDuzenle", new { id = item.Id }) |
+                @Html.ActionLink("Detay", "KullaniciDetay", new { id = item.Id }) |
+                @Html.ActionLink("Sil", "KullaniciSil", new { id = item.Id }) |
+                @Html.ActionLink("Roller", "KullaniciRolleriniListele", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>

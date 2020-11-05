@@ -1,0 +1,32 @@
+﻿@model Kitapcim.Models.KullaniciGiris
+
+@{ ViewBag.Title = "Kullanıcı Girişi Yap"; }
+<h2>Kullanıcı Girişi Yap</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <h4>Kullanıcı Giriş Bilgileri</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.LabelFor(model => model.Ad, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Ad)
+                @Html.ValidationMessageFor(model => model.Ad)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Sifre, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Sifre)
+                @Html.ValidationMessageFor(model => model.Sifre)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Giriş Yap" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

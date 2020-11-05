@@ -1,0 +1,52 @@
+﻿@model Kitapcim.Models.Yonetici
+@{
+    ViewBag.Title = "Delete";
+}
+<h2>Delete</h2>
+<h3>Silmek İstediğinize Emin Misiniz?</h3>
+<div>
+    <h4>Kitaplar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        
+         <dt>
+            @Html.DisplayNameFor(model => model.kitap_adi)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.kitap_adi)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.yazar_adi)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.yazar_adi)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.basim_tarihi)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.basim_tarihi)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tur)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.tur)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.fiyat)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.fiyat)
+        </dd>
+    </dl>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

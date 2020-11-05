@@ -1,0 +1,57 @@
+﻿@*bir tane model değil o modelin birden fazla modelin örneği geliyor, liste olarak*@
+@model IEnumerable<Kitapcim.Models.Yonetici>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.kitap_adi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.yazar_adi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tur)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.basim_tarihi)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.fiyat)
+        </th>
+        <th></th>
+    </tr>
+    @*  bu şelikde bütün filmler listeleniyor*@
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.kitap_adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.yazar_adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tur)
+            </td>
+            <td>
+               @Html.DisplayFor(modelItem => item.basim_tarihi)
+            </td>
+             <td>
+                @*güçlü tipe sahip model geçişi   =>*@
+                @Html.DisplayFor(modelItem => item.fiyat)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+</table>

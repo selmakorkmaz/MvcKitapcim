@@ -1,0 +1,36 @@
+﻿@model Kitapcim.Models.Yonetici
+
+@{
+    ViewBag.kitap_adi = "Kitap - " + Model.kitap_adi;
+}
+
+<h2>@Model.kitap_adi</h2>
+
+@*<p>
+    <img alt="@Model.kitap_adi" src="@Model.AlbumArtUrl" />
+</p>
+    *@
+<p>
+    <em>Kitap Adı:</em>
+    @Model.kitap_adi
+</p>
+
+
+<div id="album-details">
+    <p>
+        <em>Tür:</em>
+        @Model.tur
+    </p>
+    <p>
+        <em>Yazar Adı:</em>
+        @Model.yazar_adi
+    </p>
+    <p>
+        <em>Fiyat:</em>
+        @String.Format("{0:F}", Model.fiyat)
+    </p>
+    <p class="button">
+        @Html.ActionLink("Add to cart", "AddToCart",
+        "ShoppingCart", new { id = Model.ID}, "")
+    </p>
+</div>

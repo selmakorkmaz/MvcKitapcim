@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Kitapcim.Models.Rol>
+@{ ViewBag.Title = "Roller"; }
+<h2>Roller</h2>
+<p>
+    @Html.ActionLink("Yeni Rol Oluştur", "RolEkle")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ad)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ad)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "RolDuzenle", new { id = item.Id }) |
+                @Html.ActionLink("Detay", "RolDetay", new { id = item.Id }) |
+                @Html.ActionLink("Sil", "RolSil", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>

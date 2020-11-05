@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Kitapcim.Models.Yonetici>
+
+<ul id="categories">
+    @foreach (var a in Model)
+    {
+        <li>
+            @Html.ActionLink(a.tur,
+                "Browse", "Store",
+                new {Yonetici = a.tur }, null)
+    </li>
+    }
+</ul>
